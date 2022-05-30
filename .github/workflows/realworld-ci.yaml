@@ -1,0 +1,22 @@
+name: Realworld CI
+on:
+  workflow_run:
+    workflows:
+      - "Terraform Build"
+    types:
+      - "completed"
+
+
+# YAML data
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '17'
+      - run: |  
+          cd realworld-backend 
+          echo "${{ env.server_ip }}"
+  
