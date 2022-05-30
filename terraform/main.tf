@@ -11,6 +11,14 @@ terraform {
   }
   required_version = ">= 1.1.0"
 
+  # cloud {
+  #   organization = "my-learn-terraform-aws"
+
+  #   workspaces {
+  #     name = "gh-actions-demo"
+  #   }
+  # }
+
   #Add Backend
   backend "remote" {
     hostname     = "app.terraform.io"
@@ -29,6 +37,3 @@ provider "aws" {
 }
 
 resource "random_pet" "sg" {}
-
-
-  
